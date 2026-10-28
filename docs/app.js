@@ -334,7 +334,7 @@ function renderResults() {
       <div class="compare">
         <div class="stat"><div class="k">הכנסה מפניות היום</div><div class="v">${money(r.revenue)}</div><div class="s">${fmtNum(r.deals)} עסקאות בחודש</div></div>
         <div class="stat hl"><div class="k">אחרי שסוגרים את הדליפות</div><div class="v gold">${money(r.potentialRevenue)}</div><div class="s">${fmtNum(r.dealsTarget)} עסקאות בחודש</div></div>
-        <div class="stat"><div class="k">אחוז סגירה</div><div class="v">${pct(r.closeNow)} → ${pct(r.closeTarget)}</div><div class="s">היום ← אחרי השיפור</div></div>
+        <div class="stat"><div class="k">אחוז סגירה</div><div class="v" style="direction:rtl">${pct(r.closeNow)} ← ${pct(r.closeTarget)}</div><div class="s">היום ← אחרי השיפור</div></div>
         <div class="stat"><div class="k">פניות שלא נסגרות</div><div class="v">${fmtNum(r.leads - r.deals)}</div><div class="s">בחודש, בשווי ${money(r.unclosedValue)}</div></div>
       </div>
 
