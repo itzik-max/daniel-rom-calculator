@@ -1,6 +1,6 @@
 // כותב את המייל לדניאל לקובץ, כדי לראות אותו בדפדפן: npm run preview-email -- <נתיב>
 import { writeFileSync } from "node:fs";
-import { calculate } from "../public/engine.js";
+import { calculate } from "../docs/engine.js";
 import { buildEmail } from "../netlify/functions/submit.mjs";
 
 const answers = {

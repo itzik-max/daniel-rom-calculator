@@ -3,7 +3,7 @@
 import {
   BUSINESS_TYPES, CHOICES, CHOICE_ORDER, LEAK_COPY, SEVERITY_LABEL,
   calculate, firstNameOf, money, roundNice, validate,
-} from "../../public/engine.js";
+} from "../../docs/engine.js";
 
 export const config = { path: "/api/submit" };
 

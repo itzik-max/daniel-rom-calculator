@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { calculate, validate, CHOICE_ORDER, CHOICES } from "../public/engine.js";
+import { calculate, validate, CHOICE_ORDER, CHOICES } from "../docs/engine.js";
 import handler, { buildEmail, normalizePhone, validateLead } from "../netlify/functions/submit.mjs";
 
 const base = {
