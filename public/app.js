@@ -73,7 +73,7 @@ function render() {
 function renderLanding() {
   app.innerHTML = `
     <section class="screen landing">
-      <img class="logo" src="/assets/logo.jpg" alt="Daniel Rom · Business | Growth | Excellence" width="720" height="388">
+      <img class="logo" src="assets/logo.jpg" alt="Daniel Rom · Business | Growth | Excellence" width="720" height="388">
       <div class="eyebrow">מחשבון לבעלי עסקים</div>
       <h1>כמה כסף נשאר לכם <span class="gold">על הרצפה</span> כל חודש?</h1>
       <p class="lead">פניות נכנסות, אבל לא כולן הופכות ללקוחות. בשתי דקות תראו כמה זה עולה לכם, איפה בדיוק הכסף בורח, ומה עושים כדי לעצור את זה.</p>
@@ -96,7 +96,7 @@ function shell(step, { title, hint = "", body, showNext = false, nextLabel = "ה
     <section class="screen step">
       <div class="top">
         <div class="progress" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>
-        <img src="/assets/mark.jpg" alt="DR" width="53" height="30">
+        <img src="assets/mark.jpg" alt="DR" width="53" height="30">
       </div>
       <div class="eyebrow">שאלה ${i + 1} מתוך ${QUESTION_STEPS.length}</div>
       <h2>${title}</h2>
@@ -229,7 +229,7 @@ function renderGate() {
     <section class="screen step">
       <div class="top">
         <div class="progress"><i style="width:${Math.round((QUESTION_STEPS.length / (QUESTION_STEPS.length + 1)) * 100)}%"></i></div>
-        <img src="/assets/mark.jpg" alt="DR" width="53" height="30">
+        <img src="assets/mark.jpg" alt="DR" width="53" height="30">
       </div>
       <div class="teaser">
         <div class="eyebrow">התוצאה מוכנה</div>
@@ -283,7 +283,7 @@ function renderGate() {
     btn.disabled = true;
     btn.textContent = "מכינים את השיקוף...";
     try {
-      const res = await fetch("/api/submit", {
+      const res = await fetch("api/submit", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ lead: data, answers: state.answers, attribution: captureAttribution() }),
@@ -353,7 +353,7 @@ function renderResults() {
         <h3>רוצים שנעבור על זה ביחד?</h3>
         <p>בשיחת אבחון קצרה נבדוק את המספרים האמיתיים שלכם, נמצא את צוואר הבקבוק ונבנה תוכנית מסודרת לסגור אותו.</p>
         <a class="btn wide" id="cta" href="${esc(CONFIG.whatsappUrl || "#")}" target="_blank" rel="noopener">לשיחת אבחון עם דניאל ←</a>
-        <div class="who"><img src="/assets/mark.jpg" alt="" width="60" height="34"><span>דניאל רום · ליווי וייעוץ לבעלי עסקים</span></div>
+        <div class="who"><img src="assets/mark.jpg" alt="" width="60" height="34"><span>דניאל רום · ליווי וייעוץ לבעלי עסקים</span></div>
       </div>
 
       <details class="method">
