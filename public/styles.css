@@ -1,0 +1,224 @@
+/* המותג של דניאל רום: כחול לילה, זהב ולבן. כותרות בסריף, כמו בלוגו */
+:root {
+  --bg: #050a14;
+  --bg-2: #0a1324;
+  --panel: #0e1a2f;
+  --panel-2: #13223b;
+  --line: rgba(214, 178, 94, 0.18);
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --text: #f4f1ea;
+  --muted: #a3acbd;
+  --gold: #d6b25e;
+  --gold-hi: #f1d488;
+  --gold-lo: #a97c2c;
+  --red: #e2735f;
+  --amber: #e6b04b;
+  --green: #5fbf8f;
+  --radius: 18px;
+  --serif: "Frank Ruhl Libre", "Times New Roman", serif;
+  --sans: "Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --gold-grad: linear-gradient(135deg, var(--gold-hi), var(--gold) 45%, var(--gold-lo));
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(60% 40% at 85% -5%, rgba(214, 178, 94, 0.16), transparent 70%),
+    radial-gradient(70% 50% at 10% 110%, rgba(40, 70, 130, 0.25), transparent 70%);
+}
+.app { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.2; margin: 0; }
+.gold { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.muted { color: var(--muted); }
+.eyebrow { color: var(--gold); font-weight: 700; font-size: 14px; letter-spacing: .02em; }
+
+/* מעבר בין מסכים */
+.screen { animation: enter .35s ease both; }
+@keyframes enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } }
+
+/* ── פתיחה ── */
+.logo {
+  display: block; width: min(320px, 84%); height: auto; margin: 4px auto 18px; border-radius: 12px;
+}
+.landing { text-align: center; }
+.landing h1 { font-size: clamp(32px, 8.5vw, 46px); font-weight: 900; margin: 10px 0 14px; }
+.landing .lead { font-size: 18px; color: #d7dbe3; max-width: 30em; margin: 0 auto 26px; }
+.gets { list-style: none; padding: 0; margin: 0 auto 28px; display: grid; gap: 10px; text-align: right; max-width: 460px; }
+.gets li {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: linear-gradient(180deg, var(--panel), var(--bg-2));
+  border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+}
+.gets .n { font-family: var(--serif); font-weight: 900; font-size: 20px; line-height: 1.2; min-width: 22px; }
+.trust { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.trust b { color: var(--text); font-weight: 700; }
+
+/* ── כפתורים ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 56px; padding: 0 28px; border: 0; border-radius: 14px; cursor: pointer;
+  background: var(--gold-grad); color: #1a1205; font-weight: 800; font-size: 18px;
+  box-shadow: 0 10px 30px -10px rgba(214, 178, 94, .55), inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .15s ease, filter .15s ease; text-decoration: none;
+}
+.btn:hover { filter: brightness(1.06); }
+.btn:active { transform: translateY(1px); }
+.btn[disabled] { opacity: .6; cursor: wait; }
+.btn.wide { width: 100%; }
+.btn-ghost {
+  min-height: 44px; padding: 0 14px; background: none; border: 0; border-radius: 12px;
+  color: var(--muted); font-weight: 600; cursor: pointer;
+}
+.btn-ghost:hover { color: var(--text); background: rgba(255,255,255,.05); }
+
+/* ── שלב בשאלון ── */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.top img { height: 30px; border-radius: 6px; }
+.progress { flex: 1; height: 6px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--gold-grad); border-radius: 99px; transition: width .35s ease; }
+.step h2 { font-size: clamp(25px, 6.4vw, 32px); margin: 6px 0 6px; }
+.step .hint { color: var(--muted); margin: 0 0 20px; }
+.step .body { margin-top: 18px; }
+.actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+
+/* אפשרויות בחירה */
+.options { display: grid; gap: 10px; }
+.opt {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;
+  text-align: right; padding: 16px 18px; min-height: 60px; cursor: pointer;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line-soft); border-radius: 14px; font-size: 17px; font-weight: 600;
+  transition: border-color .15s ease, background .15s ease, transform .1s ease;
+}
+.opt:hover { border-color: var(--line); }
+.opt::after {
+  content: ""; width: 20px; height: 20px; flex: none; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.25);
+}
+.opt[aria-pressed="true"] { border-color: var(--gold); background: linear-gradient(180deg, #1d2a40, #15223a); }
+.opt[aria-pressed="true"]::after { border-color: var(--gold); background: radial-gradient(circle, var(--gold-hi) 0 45%, transparent 50%); }
+.opt:active { transform: scale(.99); }
+.options.grid2 { grid-template-columns: 1fr 1fr; }
+.options.grid2 .opt { min-height: 74px; font-size: 16px; }
+
+/* שדות מספר */
+.field { background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 16px 16px 14px; margin-bottom: 12px; }
+.field label { display: block; font-weight: 700; font-size: 17px; }
+.field .sub { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.field .row { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.field input[type="range"] { flex: 1; accent-color: var(--gold); height: 28px; min-width: 0; }
+.num {
+  width: 128px; flex: none; height: 50px; padding: 0 12px; border-radius: 12px;
+  background: var(--bg); border: 1px solid var(--line); color: var(--text);
+  font-size: 20px; font-weight: 800; text-align: center; direction: ltr;
+}
+.num:focus { border-color: var(--gold); outline: none; }
+.field .err { color: var(--red); font-size: 14px; margin-top: 6px; }
+.readout {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center;
+  padding: 12px 14px; border-radius: 14px; border: 1px dashed var(--line); color: var(--muted); font-size: 15px;
+}
+.readout b { color: var(--text); }
+
+/* טופס פרטים */
+.teaser {
+  text-align: center; padding: 22px 16px; margin-bottom: 18px; border-radius: var(--radius);
+  background: linear-gradient(180deg, #16243d, var(--panel)); border: 1px solid var(--line);
+}
+.teaser .big { font-family: var(--serif); font-weight: 900; font-size: 44px; filter: blur(9px); user-select: none; }
+.teaser p { margin: 6px 0 0; }
+.text-field { margin-bottom: 14px; }
+.text-field label { display: block; font-weight: 700; margin-bottom: 6px; }
+.text-field label small { color: var(--muted); font-weight: 400; }
+.text-field input {
+  width: 100%; height: 54px; padding: 0 14px; border-radius: 12px; font-size: 18px;
+  background: var(--bg); border: 1px solid var(--line); color: var(--text);
+}
+.text-field input:focus { border-color: var(--gold); outline: none; }
+.text-field input[dir="ltr"] { text-align: right; }
+.text-field .err { color: var(--red); font-size: 14px; margin-top: 6px; }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; }
+.privacy { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.privacy a { color: var(--muted); }
+.alert { border: 1px solid rgba(226,115,95,.5); background: rgba(226,115,95,.1); color: #f3b3a6; border-radius: 12px; padding: 10px 14px; margin-top: 12px; }
+
+/* ── תוצאות ── */
+.hero {
+  text-align: center; padding: 26px 18px 24px; border-radius: 22px; margin-bottom: 16px;
+  background: radial-gradient(120% 90% at 50% 0%, #1b2b48, var(--panel) 70%);
+  border: 1px solid var(--line);
+}
+.hero h1 { font-size: clamp(22px, 5.6vw, 28px); font-weight: 700; }
+.hero .amount { font-family: var(--serif); font-weight: 900; font-size: clamp(52px, 15vw, 76px); line-height: 1.05; margin: 10px 0 2px; direction: ltr; }
+.hero .per { color: var(--muted); }
+.hero .yearly { display: inline-block; margin-top: 14px; padding: 8px 16px; border-radius: 99px; background: rgba(214,178,94,.12); border: 1px solid var(--line); font-weight: 700; }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+.stat { background: var(--panel); border: 1px solid var(--line-soft); border-radius: 16px; padding: 14px; }
+.stat .k { font-size: 13px; color: var(--muted); }
+.stat .v { font-family: var(--serif); font-weight: 900; font-size: 26px; margin-top: 2px; direction: ltr; text-align: right; }
+.stat .s { font-size: 13px; color: var(--muted); }
+.stat.hl { border-color: var(--line); background: linear-gradient(180deg, #172640, var(--panel)); }
+
+.section-title { font-size: 24px; margin: 28px 0 6px; }
+.section-sub { color: var(--muted); margin: 0 0 14px; }
+
+/* מפת הדליפות: פס אחד שמחולק לפי הסכומים */
+.bar { display: flex; height: 14px; border-radius: 99px; overflow: hidden; background: rgba(255,255,255,.06); margin: 8px 0 18px; gap: 2px; }
+.bar i { display: block; height: 100%; }
+
+.leak { border: 1px solid var(--line-soft); background: var(--panel); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; }
+.leak summary { list-style: none; cursor: pointer; padding: 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; }
+.leak summary::-webkit-details-marker { display: none; }
+.leak .dot { width: 12px; height: 12px; border-radius: 50%; }
+.leak .t { font-weight: 800; font-size: 17px; }
+.leak .badge { font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-inline-start: 6px; vertical-align: 2px; }
+.leak .m { font-family: var(--serif); font-weight: 900; font-size: 20px; direction: ltr; white-space: nowrap; }
+.leak .m small { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); }
+.leak .content { padding: 0 16px 16px; border-top: 1px solid var(--line-soft); }
+.leak .content p { margin: 12px 0 8px; color: #d7dbe3; }
+.leak .content h4 { margin: 12px 0 6px; font-size: 15px; color: var(--gold); }
+.leak .content ul { margin: 0; padding-inline-start: 20px; }
+.leak .content li { margin-bottom: 4px; }
+.leak.high .dot { background: var(--red); } .leak.high .badge { background: rgba(226,115,95,.15); color: #f3b3a6; }
+.leak.medium .dot { background: var(--amber); } .leak.medium .badge { background: rgba(230,176,75,.15); color: #f1cf8d; }
+.leak.ok .dot { background: var(--green); } .leak.ok .badge { background: rgba(95,191,143,.15); color: #a6e3c4; }
+.leak.ok summary { padding-block: 12px; }
+.leak.ok .t { font-weight: 600; color: var(--muted); }
+
+.plan { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.plan li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 14px; }
+.plan li::before { content: counter(s); font-family: var(--serif); font-weight: 900; font-size: 22px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); color: #1a1205; }
+.plan b { display: block; }
+
+.cta { margin-top: 26px; text-align: center; padding: 24px 18px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(180deg, #16243d, var(--bg-2)); }
+.cta h3 { font-size: 24px; margin-bottom: 8px; }
+.cta p { color: #d7dbe3; margin: 0 0 18px; }
+.cta .who { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 16px; font-size: 14px; color: var(--muted); }
+.cta .who img { height: 34px; border-radius: 6px; }
+
+.method { margin-top: 22px; font-size: 13px; color: var(--muted); }
+.method summary { cursor: pointer; font-weight: 600; }
+.method ul { padding-inline-start: 18px; }
+.footer-actions { display: flex; justify-content: center; margin-top: 10px; }
+
+@media (min-width: 560px) {
+  .app { padding-top: 32px; }
+  .options:not(.grid2) .opt { font-size: 18px; }
+}

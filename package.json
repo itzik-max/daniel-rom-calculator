@@ -1,0 +1,9 @@
+{
+  "name": "daniel-rom-calculator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "preview-email": "node test/preview-email.mjs"
+  }
+}
